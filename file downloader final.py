@@ -2,7 +2,7 @@ from tqdm import tqdm
 import requests
 import time
 import concurrent.futures
-
+# source to download from
 urls = [
 'https://unsplash.com/photos/ErhaVPCytew','https://unsplash.com/photos/ygC8YJvaR1Y']
 
@@ -20,7 +20,7 @@ def downloader(url):
 
 
 t1 = time.perf_counter()
-
+# Allows multiple threads to run
 with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(downloader, urls)
 
